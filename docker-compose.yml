@@ -38,6 +38,22 @@ services:
         reservations:
           memory: 128M
 
+  pushgateway:
+    image: prom/pushgateway:v1.4.1
+    networks:
+      - net
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      resources:
+        limits:
+          memory: 1024M
+        reservations:
+          memory: 128M
+
   cadvisor:
     image: google/cadvisor
     networks:
@@ -179,6 +195,7 @@ services:
       - "3000:3000"
       - "9090:9090"
       - "9093:9093"
+      - "9091:9091"
 #      - "9094:9094"
     networks:
       - net
