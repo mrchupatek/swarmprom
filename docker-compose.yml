@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.8"
 
 networks:
   net:
@@ -147,7 +147,7 @@ services:
           memory: 128M
 
   prometheus:
-    image: stefanprodan/swarmprom-prometheus:v2.5.0
+    image: stefanprodan/swarmprom-prometheus:v2.28.1
     networks:
       - net
     command:
