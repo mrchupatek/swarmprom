@@ -18,9 +18,9 @@
     tls off
 }
 
-:9094 {
+:9091 {
     basicauth / {$ADMIN_USER} {$ADMIN_PASSWORD}
-    proxy / unsee:8080 {
+    proxy / pushgateway:9091 {
             transparent
         }
 
