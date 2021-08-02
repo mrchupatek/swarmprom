@@ -35,3 +35,11 @@ scrape_configs:
       - 'tasks.node-exporter'
       type: 'A'
       port: 9100
+      
+  - job_name: 'pushgateway'
+    honor_labels: true
+    dns_sd_configs:
+    - names:
+      - 'tasks.pushgateway'
+      type: 'A'
+      port: 9091
