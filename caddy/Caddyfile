@@ -28,6 +28,17 @@
     tls off
 }
 
+:9323 {
+    basicauth / {$ADMIN_USER} {$ADMIN_PASSWORD}
+    proxy / dockerd-exporter:9323 {
+            transparent
+        }
+
+    errors stderr
+    tls off
+}
+
+
 :3000 {
     proxy / grafana:3000 {
             transparent
